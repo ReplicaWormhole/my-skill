@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An expandable Lamport-style proof with linked steps and discussions.">
+  <title>@@title@@ · Proof explorer</title>
+  <style>
+@@style@@
+  </style>
+</head>
+<body>
+  <a class="skip" href="#step-1">Skip to the theorem</a>
+  <div class="layout">
+    <aside class="sidebar" aria-label="Proof navigation">
+      <a href="#step-1" class="sidebar-title">Proof explorer</a>
+      <nav class="roadmap" aria-label="Proof roadmap">
+        @@navigation@@
+      </nav>
+      <nav class="support" aria-label="Supporting material">
+        @@support_navigation@@
+        <button id="open-selection-chats" type="button" aria-haspopup="dialog" hidden>Selection chats</button>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="step-1" class="theorem" tabindex="-1" aria-labelledby="theorem-title">
+        <div class="theorem-header">
+          <p class="eyebrow">@@root_kind@@ <span class="step-number">1</span></p>
+          <button class="ask-node" type="button" data-chat-node="step-1" hidden>Ask</button>
+        </div>
+        <h1 id="theorem-title">@@root_title@@</h1>
+        <div class="theorem-statement">
+          @@statement@@
+        </div>
+      </section>
+
+      <section class="proof" aria-labelledby="proof-heading">
+        <header class="proof-header">
+          <h2 id="proof-heading">Proof</h2>
+          <div class="controls" hidden>
+            <button type="button" id="expand">Expand all</button>
+            <button type="button" id="collapse">Collapse to roadmap</button>
+          </div>
+        </header>
+        <div id="proof-tree">
+          @@branches@@
+        </div>
+      </section>
+
+      @@support_sections@@
+
+      @@source@@
+    </main>
+  </div>
+  <dialog id="proof-chat" aria-labelledby="chat-title">
+    <div class="chat-heading">
+      <div>
+        <p id="chat-step" class="eyebrow"></p>
+        <h2 id="chat-title"></h2>
+      </div>
+      <form method="dialog"><button type="submit">Close</button></form>
+    </div>
+    <nav class="chat-nav" aria-label="Conversation navigation">
+      <button id="chat-source" type="button" hidden>Show source</button>
+      <button id="chat-parent" type="button" hidden>Parent chat</button>
+      <button id="chat-browse" type="button" hidden>Selection chats</button>
+      <button id="chat-return" type="button" hidden>Return to chat</button>
+    </nav>
+    <div id="chat-archive" hidden></div>
+    <blockquote id="chat-quote" hidden></blockquote>
+    <details id="chat-branches" hidden>
+      <summary>Branches</summary>
+      <ul id="chat-children"></ul>
+    </details>
+    <div id="chat-history" role="log" aria-label="Conversation"></div>
+    <p id="chat-status" role="status"></p>
+    <p id="chat-offline" hidden>To chat, open this proof through the local proof server.</p>
+    <form id="chat-form">
+      <label for="chat-question">Question</label>
+      <textarea id="chat-question" required maxlength="8000" rows="3"></textarea>
+      <button id="chat-send" type="submit">Send to Codex</button>
+    </form>
+  </dialog>
+  <button id="ask-selection" type="button" aria-haspopup="dialog" hidden>Ask about this selection</button>
+  <script type="application/json" id="proof-chat-data" data-snapshot="@@snapshot@@">@@chat_data@@</script>
+  <script>
+@@script@@
+@@chat_script@@
+  </script>
+</body>
+</html>

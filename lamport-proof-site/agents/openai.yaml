@@ -1,0 +1,3 @@
+interface:
+  display_name: "Lamport Proof Explorer"
+  short_description: "Build an interactive proof explorer from JSON"

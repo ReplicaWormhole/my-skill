@@ -1,0 +1,3 @@
+interface:
+  display_name: "Lamport Proof JSON"
+  short_description: "Encode a hierarchical proof as validated JSON"
